@@ -135,19 +135,19 @@ source ~/.bashrc
 
 # Step 5: Connect to Servers
 
-Connect to VM 3:
+Connect to VM 1:
 
 ```bash
 vm1
 ```
 
-Connect to VM 4:
+Connect to VM 2:
 
 ```bash
 vm2
 ```
 
-Connect to VM 5:
+Connect to VM 3:
 
 ```bash
 vm3
@@ -293,7 +293,3 @@ This removes password prompts securely.
 * Bash aliases
 
 ---
-
-# Author
-
-DevOps SSH Automation Lab using Ubuntu/Linux.
