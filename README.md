@@ -27,6 +27,14 @@ without manually entering passwords every time.
 
 # Step 1: Install sshpass
 
+## Run on Main VM / Local Machine
+
+Example:
+
+```bash
+lab-user@Shubh:~$
+```
+
 Update package list:
 
 ```bash
@@ -49,6 +57,8 @@ sshpass -V
 
 # Step 2: Configure SSH Hosts
 
+## Run on Main VM / Local Machine
+
 Open SSH config file:
 
 ```bash
@@ -59,19 +69,19 @@ Add VM details:
 
 ```text
 Host 1
-    HostName lab-as
-    User lab1
+    HostName lab-as-1
+    User lab-1
 
 Host 2
-    HostName lab-as
-    User lab2
+    HostName lab-as-2
+    User lab-2
 
 Host 3
-    HostName lab-as
-    User lab3
+    HostName lab-as-3
+    User lab-2
 ```
 
-Explanation:
+## Explanation
 
 | Parameter | Description           |
 | --------- | --------------------- |
@@ -91,6 +101,8 @@ ENTER
 
 # Step 3: Create SSH Auto Login Aliases
 
+## Run on Main VM / Local Machine
+
 Open bash configuration file:
 
 ```bash
@@ -105,7 +117,7 @@ alias vm2="sshpass -p 'password2' ssh 2"
 alias vm3="sshpass -p 'password3' ssh 3"
 ```
 
-Example:
+## Example
 
 ```bash
 alias vm1="sshpass -p 'shubh' ssh 1"
@@ -125,6 +137,8 @@ ENTER
 
 # Step 4: Reload Bash Configuration
 
+## Run on Main VM / Local Machine
+
 Apply changes:
 
 ```bash
@@ -134,6 +148,8 @@ source ~/.bashrc
 ---
 
 # Step 5: Connect to Servers
+
+## Run on Main VM / Local Machine
 
 Connect to VM 1:
 
@@ -179,6 +195,8 @@ vm3
 
 # Verify SSH Config
 
+## Run on Main VM / Local Machine
+
 Check configured hosts:
 
 ```bash
@@ -189,13 +207,15 @@ Expected output:
 
 ```text
 Host 1
-    HostName lab-as
-    User lab1
+    HostName lab-as-1
+    User lab-user-1
 ```
 
 ---
 
 # Verify Aliases
+
+## Run on Main VM / Local Machine
 
 Check configured aliases:
 
@@ -215,7 +235,7 @@ alias vm1='sshpass -p '\''shubh'\'' ssh 1'
 
 ## sshpass Command Not Found
 
-Install again:
+Run:
 
 ```bash
 sudo apt install sshpass -y
@@ -263,6 +283,8 @@ Recommended production approach:
 
 # Recommended Alternative (Secure Method)
 
+## Run on Main VM / Local Machine
+
 Generate SSH Key:
 
 ```bash
@@ -272,13 +294,13 @@ ssh-keygen -t ed25519
 Copy Key to Server:
 
 ```bash
-ssh-copy-id 3
+ssh-copy-id 1
 ```
 
 Connect Securely:
 
 ```bash
-ssh 3
+ssh 1
 ```
 
 This removes password prompts securely.
@@ -291,5 +313,3 @@ This removes password prompts securely.
 * OpenSSH
 * sshpass
 * Bash aliases
-
----
